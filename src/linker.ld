@@ -65,6 +65,12 @@ SECTIONS
   {
     KEEP (*(SORT_NONE(.fini)))
   }
+  .init_functions :
+  {
+    PROVIDE (__init_start = .);
+    *(.init_functions)
+    PROVIDE (__init_end = .);
+  }
   PROVIDE (__etext = .);
   PROVIDE (_etext = .);
   PROVIDE (etext = .);
